@@ -144,11 +144,11 @@ msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "BS Theme"
+msgid "TY Theme"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/ControlledChaos/bs-theme"
+msgid "https://github.com/ControlledChaos/ty-theme"
 msgstr ""
 
 #. Description of the plugin/theme

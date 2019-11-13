@@ -1,4 +1,4 @@
-# BS Theme
+# TY Theme
 
 A basic starter theme for WordPress and ClassicPress.
 
@@ -10,7 +10,7 @@ A basic starter theme for WordPress and ClassicPress.
 
 See [BS Plugin](https://github.com/ControlledChaos/bs-plugin) for a basic WordPress/ClassicPress starter plugin.
 
-![BS Theme Screenshot](https://raw.githubusercontent.com/ControlledChaos/bs-theme/master/screenshot.jpg)
+![TY Theme Screenshot](https://raw.githubusercontent.com/ControlledChaos/ty-theme/master/screenshot.jpg)
 
 ## Nothing Fancy
 

@@ -3,7 +3,7 @@
  * The template for displaying all pages
  *
  * @package    WordPress/ClassicPress
- * @subpackage BS_Theme
+ * @subpackage TY_Theme
  * @since      1.0.0
  */
 
