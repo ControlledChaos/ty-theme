@@ -546,7 +546,7 @@ final class Functions {
 	public function frontend_styles() {
 
 		// Google fonts.
-		// wp_enqueue_style( 'ty-theme-google-fonts', 'add-url-here', [], '', 'screen' );
+		wp_enqueue_style( 'ty-theme-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i&display=swap', [], '', 'screen' );
 
 		/**
 		 * Theme sylesheet
@@ -578,6 +578,9 @@ final class Functions {
 	 */
 	public function admin_styles() {
 
+		// Google fonts.
+		wp_enqueue_style( 'ty-theme-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i&display=swap', [], '', 'screen' );
+
 		wp_enqueue_style( 'bs-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
 
 	}
@@ -608,6 +611,9 @@ final class Functions {
 	 */
 	public function login_styles() {
 
+		// Google fonts.
+		wp_enqueue_style( 'ty-theme-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i&display=swap', [], '', 'screen' );
+
 		wp_enqueue_style( 'custom-login', get_theme_file_uri( '/assets/css/login.css' ), [], '', 'screen' );
 
 	}
@@ -623,7 +629,7 @@ final class Functions {
 
 		require get_theme_file_path( '/includes/template-functions.php' );
 		require get_theme_file_path( '/includes/template-tags.php' );
-		require get_theme_file_path( '/includes/customizer.php' );
+		// require get_theme_file_path( '/includes/customizer.php' );
 
 	}
 
