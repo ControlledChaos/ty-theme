@@ -77,22 +77,6 @@ if ( is_home() && ! is_front_page() ) {
 				?>
 				<p class="site-description"><?php echo $site_description; ?></p>
 			<?php endif; ?>
-			<div class="site-header-image" role="presentation">
-				<figure>
-					<?php
-					if ( has_header_image() ) {
-						$attributes = [
-							'alt'  => ''
-						];
-						the_header_image_tag( $attributes );
-					} else {
-						echo sprintf(
-							'<img src="%1s" alt="" width="2048" height="878" />',
-							get_theme_file_uri( '/assets/images/default-header.jpg' )
-						);
-					} ?>
-				</figure>
-			</div>
 		</div>
 	</header>
 
