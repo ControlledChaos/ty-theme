@@ -1,13 +1,13 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying the static front page
  *
  * @package    WordPress/ClassicPress
  * @subpackage TY_Theme
  * @since      1.0.0
  */
 
-get_header(); ?>
+get_header( 'front' ); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" itemscope itemprop="mainContentOfPage">
@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// get_template_part( 'template-parts/content', 'front-page' );
 
 		endwhile; // End of the loop.
 		?>
@@ -23,4 +23,4 @@ get_header(); ?>
 		</main>
 	</div>
 
-<?php get_footer();
+<?php get_footer( 'front' );
