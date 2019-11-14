@@ -4,10 +4,10 @@
 .site-title {
 	/* Match <p> tag to <h1> tag on front page */
 	font-size: 2em;
-	font-weight: bold;
 
-	& a {
+	a {
 		text-decoration: none;
+		color: $dark_gray;
 	}
 }
 

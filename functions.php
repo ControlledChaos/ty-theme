@@ -557,6 +557,11 @@ final class Functions {
 		 */
 		wp_enqueue_style( 'ty-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
 
+		// Right-to-left language styles.
+		if ( is_rtl() ) {
+			wp_enqueue_style( 'ty-theme', get_theme_file_uri( '/assets/css/rtl.min.css' ), [], '' );
+		}
+
 		// Block styles.
 		if ( function_exists( 'has_blocks' ) ) {
 			if ( has_blocks() ) {
