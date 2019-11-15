@@ -65,19 +65,15 @@ if ( is_home() && ! is_front_page() ) {
 
 	<header id="masthead" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
 		<div class="site-branding">
+			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php
-			the_custom_logo();
-			if ( is_front_page() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php endif;
 			$site_description = get_bloginfo( 'description', 'display' );
 			if ( $site_description || is_customize_preview() ) :
 				?>
 				<p class="site-description"><?php echo $site_description; ?></p>
 			<?php endif; ?>
 		</div>
+		<p class="theme-toggle"><button id="theme-toggle" type="button" name="dark_light" title="<?php esc_html_e( 'Toggle light/dark theme', 'ty-theme' ); ?>"><?php echo __( 'Light Theme', 'ty-theme' ); ?></button></p>
 	</header>
 
 	<div id="content" class="site-content">

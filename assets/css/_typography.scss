@@ -2,10 +2,15 @@
  * Typography
  */
 body {
-	background: #fff;
+	background: $white;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	line-height: 1.5;
 	color: $text;
+
+	&.dark-mode {
+		background: $dark;
+		color: $white;
+	}
 }
 
 .serif {
@@ -30,8 +35,17 @@ h1,
 h2,
 h3,
 .site-title {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $headings;
 	color: $dark_gray;
+}
+
+.dark-mode {
+	h1,
+	h2,
+	h3,
+	.site-title {
+		color: $white;
+	}
 }
 
 h1,
@@ -40,6 +54,15 @@ h2,
 	font-weight: normal;
 	font-weight: 500;
 	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+.archive-title {
+	font-size: $px27;
+	font-weight: normal;
+	font-weight: 500;
+	font-variant: small-caps;
+	text-transform: none;
 }
 
 h3 {
@@ -52,6 +75,11 @@ a {
 
 a:visited {
 	color: $visited;
+}
+
+.dark-mode a,
+.dark-mode a:visited {
+	color: $white;
 }
 
 .entry-content ul,

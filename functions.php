@@ -110,14 +110,14 @@ final class Functions {
 		// Register widgets.
         add_action( 'widgets_init', [ $this, 'widgets' ] );
 
-		// Disable custom colors in the editor.
-		add_action( 'after_setup_theme', [ $this, 'editor_custom_color' ] );
-
 		// Remove unpopular meta tags.
 		add_action( 'init', [ $this, 'head_cleanup' ] );
 
 		// Frontend scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
+
+		// Frontend footer scripts.
+		add_action( 'wp_footer', [ $this, 'frontend_footer_scripts' ], 20 );
 
 		// Admin scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
@@ -197,9 +197,6 @@ final class Functions {
 		// Browser title tag support.
 		add_theme_support( 'title-tag' );
 
-		// Background color & image support.
-		add_theme_support( 'custom-background' );
-
 		// RSS feed links support.
 		add_theme_support( 'automatic-feed-links' );
 
@@ -211,58 +208,6 @@ final class Functions {
 			'gscreenery',
 			'caption'
 		 ] );
-
-		/**
-		 * Block editor colors
-		 *
-		 * Match the following HEX codes with SASS color variables.
-		 * @see assets/css/_variables.scss
-		 *
-		 * @since 1.0.0
-		 */
-		$color_args = [
-			[
-				'name'  => __( 'Text', 'ty-theme' ),
-				'slug'  => 'bst-text',
-				'color' => '#333333',
-			],
-			[
-				'name'  => __( 'Light Gray', 'ty-theme' ),
-				'slug'  => 'bst-light-gray',
-				'color' => '#888888',
-			],
-			[
-				'name'  => __( 'Pale Gray', 'ty-theme' ),
-				'slug'  => 'bst-pale-gray',
-				'color' => '#cccccc',
-			],
-			[
-				'name'  => __( 'White', 'ty-theme' ),
-				'slug'  => 'bst-white',
-				'color' => '#ffffff',
-			],
-			[
-				'name'  => __( 'Error Red', 'ty-theme' ),
-				'slug'  => 'bst-error',
-				'color' => '#dc3232',
-			],
-			[
-				'name'  => __( 'Warning Yellow', 'ty-theme' ),
-				'slug'  => 'bst-warning',
-				'color' => '#ffb900',
-			],
-			[
-				'name'  => __( 'Success Green', 'ty-theme' ),
-				'slug'  => 'bst-success',
-				'color' => '#46b450',
-			]
-		];
-
-		// Apply a filter to editor arguments.
-		$colors = apply_filters( 'bst_editor_colors', $color_args );
-
-		// Add theme color support.
-		add_theme_support( 'editor-color-palette', $colors );
 
 		/**
 		 * Set default image sizes
@@ -313,53 +258,16 @@ final class Functions {
 		add_image_size( __( 'xlarge-thumbnail', 'beeline-theme' ), 320, 320, true );
 
 		// 16:9 HD Video.
+		add_image_size( __( 'slide', 'ty-theme' ), 2048, 1152, true );
 		add_image_size( __( 'large-video', 'ty-theme' ), 1280, 720, true );
 		add_image_size( __( 'medium-video', 'ty-theme' ), 960, 540, true );
 		add_image_size( __( 'small-video', 'ty-theme' ), 640, 360, true );
+		add_image_size( __( 'preview-video', 'ty-theme' ), 320, 180, true );
 
 		// 21:9 Cinemascope.
 		add_image_size( __( 'large-banner', 'ty-theme' ), 1280, 549, true );
 		add_image_size( __( 'medium-banner', 'ty-theme' ), 960, 411, true );
 		add_image_size( __( 'small-banner', 'ty-theme' ), 640, 274, true );
-
-		/**
-		 * Custom header
-		 */
-		add_theme_support( 'custom-header', apply_filters( 'bst_custom_header_args', [
-			'width'              => 2048,
-			'height'             => 878,
-			'flex-height'        => true,
-			'video'              => false,
-			'wp-head-callback'   => [ $this, 'header_style' ]
-		] ) );
-
-		register_default_headers( [
-			'default-image' => [
-				'url'           => '%s/assets/images/default-header.jpg',
-				'thumbnail_url' => '%s/assets/images/default-header.jpg',
-				'description'   => __( 'Default Header Image', 'ty-theme' ),
-			],
-		] );
-
-		/**
-		 * Custom logo
-		 *
-		 * @since 1.0.0
-		 */
-
-		// Logo arguments.
-		$logo_args = [
-			'width'       => 180,
-			'height'      => 180,
-			'flex-width'  => true,
-			'flex-height' => true
-		];
-
-		// Apply a filter to logo arguments.
-		$logo = apply_filters( 'bst_header_image', $logo_args );
-
-		// Add logo support.
-		add_theme_support( 'custom-logo', $logo );
 
 		 /**
 		 * Set content width.
@@ -382,9 +290,7 @@ final class Functions {
 		 * @since  1.0.0
 		 */
 		register_nav_menus( [
-			'main'   => __( 'Main Menu', 'ty-theme' ),
-			'footer' => __( 'Footer Menu', 'ty-theme' ),
-			'social' => __( 'Social Menu', 'ty-theme' )
+			'main'   => __( 'Main Menu', 'ty-theme' )
 		] );
 
 		/**
@@ -467,24 +373,6 @@ final class Functions {
 	}
 
 	/**
-	 * Theme support for disabling custom colors in the editor
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return bool Returns true for the color picker.
-	 */
-	public function editor_custom_color() {
-
-		$disable = add_theme_support( 'disable-custom-colors', [] );
-
-		// Apply a filter for conditionally disabling the picker.
-		$custom_colors = apply_filters( 'bst_editor_custom_colors', '__return_false' );
-
-		return $custom_colors;
-
-	}
-
-	/**
 	 * Clean up meta tags from the <head>
 	 *
 	 * @since  1.0.0
@@ -511,18 +399,39 @@ final class Functions {
 		wp_enqueue_script( 'jquery' );
 
 		// Navigation toggle and dropdown.
-		wp_enqueue_script( 'test-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
+		wp_enqueue_script( 'main-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
 
 		// Skip link focus, for accessibility.
-		wp_enqueue_script( 'ty-theme-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
+		wp_enqueue_script( 'theme-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
 
 		// FitVids for responsive video embeds.
-		wp_enqueue_script( 'bs-fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
-		wp_add_inline_script( 'bs-fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
+		wp_enqueue_script( 'fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
+		wp_add_inline_script( 'fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
+
+		// TitText for the front page site title.
+		if ( is_front_page() ) {
+			wp_enqueue_script( 'fittext', get_theme_file_uri( '/assets/js/jquery.fittext.min.js' ), [ 'jquery' ], null, true );
+			wp_add_inline_script( 'fittext', 'jQuery(document).ready(function($){ $(".site-title").fitText(1.2, { minFontSize: "40px", maxFontSize: "72px" }), $(".site-description").fitText(2.5, { minFontSize: "18px", maxFontSize: "28px" }) });', true );
+		}
 
 		// Comments scripts.
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
+		}
+
+	}
+
+	/**
+	 * Frontend footer scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function frontend_footer_scripts() {
+
+		if ( is_front_page() ) {
+			echo '<script>jQuery(".intro-slides").slick({autoplay:true,autoplaySpeed:4500,slidesToShow:1,arrows:false,dots:false,infinite:true,speed:800,adaptiveHeight:true,variableWidth:false,mobileFirst:true,draggable:false,fade:true,pauseOnHover:false});</script>';
 		}
 
 	}
@@ -546,7 +455,7 @@ final class Functions {
 	public function frontend_styles() {
 
 		// Google fonts.
-		wp_enqueue_style( 'ty-theme-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i&display=swap', [], '', 'screen' );
+		wp_enqueue_style( 'ty-theme-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400i,500,600,700,700i&display=swap', [], '', 'screen' );
 
 		/**
 		 * Theme sylesheet
@@ -632,6 +541,7 @@ final class Functions {
 	 */
 	private function dependencies() {
 
+		require get_theme_file_path( '/includes/class-fields-front-page.php' );
 		require get_theme_file_path( '/includes/template-functions.php' );
 		require get_theme_file_path( '/includes/template-tags.php' );
 		// require get_theme_file_path( '/includes/customizer.php' );

@@ -33,3 +33,182 @@
 .entry-footer span {
 	margin-right: 1em;
 }
+
+/**
+ * Video grids
+ */
+ .video-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 0.35em 0.35em;
+	max-width: 100vw;
+	margin: 2em 0 0;
+	margin-left: calc( -100vw / 2 + 100% / 2 );
+	margin-right: calc( -100vw / 2 + 100% / 2 );
+	list-style: none;
+
+	figure {
+		position: relative;
+		overflow: hidden;
+
+		img {
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+			opacity: 0.95;
+			-webkit-transition: all .25s;
+			transition: all .25s;
+		}
+
+		figcaption {
+			pointer-events: none;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			padding: 1em 1em 1em 1.5em;
+			background: -webkit-gradient(
+				linear,
+				left top, left bottom,
+				from(transparent),
+				color-stop(60%, rgba(0,0,0,0.425)),
+				to(rgba(0,0,0,0.65))
+			);
+			background: linear-gradient(
+				to bottom,
+				transparent 0%,
+				rgba(0,0,0,0.425) 60%,
+				rgba(0,0,0,0.65) 100%
+			);
+			color: $white;
+
+			h2 {
+				font-size: $px17;
+				text-transform: none;
+				color: $white;
+				text-shadow: 0.035em 0.035em 0.035em rgba(0, 0, 0, 0.85);
+			}
+		}
+
+		&:hover {
+
+			img {
+				opacity: 1;
+			}
+		}
+	}
+
+	a {
+		pointer-events: auto;
+		text-decoration: none;
+		color: $white;
+	}
+}
+
+/**
+ * Contact page
+ */
+ .info-page-content {
+	margin-top: 2em;
+}
+
+.agency-info {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 1em;
+	line-height: 1.3;
+}
+
+.agency-info a {
+	text-decoration: none;
+}
+
+.agency-content {
+	margin-top: 2em;
+}
+
+.agency-content img {
+	display: block;
+	margin-top: 1.75em;
+	max-width: 160px;
+	float: left;
+	margin-right: 2em;
+}
+
+.agency-content h3 {
+    margin-top: 1em;
+	font-size: 2rem;
+	font-weight: 500;
+	font-variant: small-caps;
+}
+
+.entry-content ul.agents-list {
+	list-style: none;
+    margin: 0;
+    padding-top: 1em;
+}
+
+.agents-list {
+    display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1em;
+}
+
+.agents-list li {
+	padding: 1em 0;
+}
+
+.agents-list a {
+	text-decoration: none;
+}
+
+.agent-department {
+    font-size: 0.975em;
+    font-weight: bold;
+    font-weight: 700;
+}
+
+.agency-info a[href^="tel:"],
+.agent-tel {
+	font-size: 0.975em;
+    font-weight: bold;
+    font-weight: 500;
+}
+
+.resume-link {
+	clear: both;
+	margin-top: 2em;
+	padding: 2em 0;
+	border-top: solid 1px $pale_gray;
+}
+
+.resume-link p {
+	margin: 0;
+}
+
+.button.resume-link-button {
+	font-family: $display;
+	font-size: $px18;
+	font-weight: bold;
+	font-weight: 600;
+	font-variant: small-caps;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 960px) {
+
+	.video-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 640px) {
+
+	.video-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

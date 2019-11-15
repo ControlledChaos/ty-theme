@@ -27,7 +27,7 @@ body {
 
 .wrap > h1,
 .welcome-panel h2 {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $headings;
 	font-size: 23px;
 	font-weight: normal;
 	font-weight: 500;
@@ -96,7 +96,7 @@ input {
 
 .admin-site-title {
 	margin: 0;
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $headings;
 	font-size: 34px;
 	font-weight: normal;
 	font-weight: 500;
@@ -111,7 +111,7 @@ input {
 
 .admin-site-description {
 	margin: 0;
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-size: 22px;
 	font-style: normal;
 	font-weight: normal;
@@ -123,7 +123,7 @@ input {
 .admin-navigation-list li {
 	display: inline;
 	margin: 0 0.75em;
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-size: 19px;
 	font-weight: bold;
 	font-weight: 600;
@@ -193,7 +193,7 @@ input[type=radio]:checked:before {
 	color: #fff;
 	-webkit-box-shadow: none;
 			box-shadow: none;
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-size: 0.85em;
 	font-weight: normal;
 	font-weight: 500;
@@ -290,7 +290,7 @@ input[type=radio]:checked:before {
 
 h2.title,
 form h2 {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $headings;
 	font-size: 1.2em;
 	font-weight: normal;
 	font-weight: 500;
@@ -328,7 +328,7 @@ form h2 {
 }
 
 #titlediv {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-weight: 400;
 	color: #444;
 }
@@ -345,7 +345,7 @@ form h2 {
 }
 
 #adminmenu a {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-weight: normal;
 	font-weight: 500;
 	color: #444;
@@ -353,7 +353,7 @@ form h2 {
 
 #adminmenu .wp-submenu-head,
 #adminmenu a.menu-top {
-	font-size: $px18;
+	font-size: $px17;
 	font-weight: normal;
 	font-weight: 500;
 	font-variant: small-caps;
@@ -516,7 +516,7 @@ background: #d46f15;
 .welcome-panel h3,
 .welcome-panel h4,
 .typlugin-dashboard-post-type-actions a {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $headings;
 	font-weight: normal;
 	font-weight: 500;
 	color: #444;
@@ -608,7 +608,7 @@ background: #d46f15;
 }
 
 .theme-browser .theme .theme-name {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-size: 13px;
 	font-weight: normal;
 	font-weight: 500;
@@ -617,7 +617,7 @@ background: #d46f15;
 
 .theme-overlay .theme-name {
 	color: #444;
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-size: 28px;
 	font-weight: normal;
 	font-weight: 400;
@@ -635,7 +635,7 @@ background: #d46f15;
 	margin: 0;
 	background: #888;
 	color: #fff;
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $display;
 	font-size: 11px;
 	line-height: 1;
 	padding: 1em;
@@ -678,7 +678,7 @@ div#widgets-left .sidebar-name h2,
 div#widgets-left .sidebar-name h3,
 div#widgets-right .sidebar-name h2,
 div#widgets-right .sidebar-name h3 {
-	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-family: $headings;
 	font-size: 1.2em;
 	font-weight: normal;
 	font-weight: 500;

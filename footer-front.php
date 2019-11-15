@@ -21,14 +21,13 @@ $copyright = sprintf(
 
 	</div>
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer screen-reader-text">
 		<div class="footer-content global-wrapper footer-wrapper">
 				<?php echo $copyright; ?>
 		</div>
 	</footer>
 </div>
 
-<?php TY_Theme\Tags\after_page(); ?>
 <?php wp_footer(); ?>
 
 </body>

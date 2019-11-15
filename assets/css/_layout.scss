@@ -1,7 +1,45 @@
+.front-html {
+	overflow: hidden;
+}
+
 .site {
+	position: relative;
 	max-width: 1280px;
 	margin: 0 auto;
-	padding: 2em;
+	padding: 1em 2em 2em;
+}
+
+body:not(.home) .site-main {
+	margin-top: 2em;
+	border-top: solid 1px $pale_gray;
+}
+
+.home {
+	height: 100vh;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	   -moz-box-orient: vertical;
+	   -moz-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	   -moz-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	   -moz-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin: 0;
+
+	.site {
+		width: 100%;
+		margin: 0;
+	}
 }
 
 main article {

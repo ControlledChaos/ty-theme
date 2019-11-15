@@ -28,8 +28,39 @@ $copyright = sprintf(
 	</footer>
 </div>
 
-<?php TY_Theme\Tags\after_page(); ?>
 <?php wp_footer(); ?>
+<script>
+jQuery( document ).ready( function ($) {
 
+	var button = $( '#theme-toggle' );
+
+    // Check local storage and set theme.
+    if ( localStorage.theme ) {
+		$( 'body' ).addClass( localStorage.theme );
+		$( button ).text( localStorage.text );
+	} else {
+
+		// Set default theme.
+		$( 'body' ).addClass( 'light-mode' );
+		$( button ).text( '<?php esc_html_e( 'Dark Theme', 'ty-theme' ); ?>' );
+	}
+
+	// Switch theme and store in local storage.
+	$( button ).click( function() {
+
+		if ( $ ( 'body' ).hasClass( 'light-mode') ) {
+			$( 'body' ).removeClass( 'light-mode' ).addClass( 'dark-mode' );
+			$( button ).text( '<?php esc_html_e( 'Light Theme', 'ty-theme' ); ?>' );
+			localStorage.theme = 'dark-mode';
+			localStorage.text  = '<?php esc_html_e( 'Light Theme', 'ty-theme' ); ?>';
+		} else {
+			$( 'body' ).removeClass( 'dark-mode' ).addClass( 'light-mode' );
+			$( button ).text( '<?php esc_html_e( 'Dark Theme', 'ty-theme' ); ?>' );
+			localStorage.theme = 'light-mode';
+			localStorage.text  = '<?php esc_html_e( 'Dark Theme', 'ty-theme' ); ?>';
+		}
+	});
+});
+</script>
 </body>
 </html>

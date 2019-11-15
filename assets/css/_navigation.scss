@@ -5,12 +5,12 @@
 	clear: both;
 	display: block;
 	width: 100%;
-	margin-top: 1em;
 
 	ul {
 		display: none;
 		list-style: none;
 		margin: 0;
+		padding-top: $px13;
 		padding-left: 0;
 		background-color: inherit;
 
@@ -52,6 +52,13 @@
 
 	li {
 		overflow: visible;
+		margin: 0.5em 0;
+		font-family: $display;
+		font-size: $px18;
+		font-weight: bold;
+		font-weight: 500;
+		font-variant: small-caps;
+		letter-spacing: 0.05em;
 
 		&:hover > ul,
 		&:focus > ul,
@@ -63,10 +70,73 @@
 	a {
 		display: inline-block;
 		text-decoration: none;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			top: auto;
+			left: 0;
+			bottom: -0.03em;
+			width: 100%;
+			height: 1px;
+			-webkit-transform: scaleX(0);
+			        transform: scaleX(0);
+			-webkit-transition: -webkit-transform .15s ease;
+			transition: -webkit-transform .15s ease;
+			transition: transform .15s ease;
+			transition: transform .15s ease, -webkit-transform .15s ease;
+			background: $light_gray;
+			content: '';
+		}
+
+		&:hover,
+		&:focus {
+			&:before {
+				-webkit-transform: scaleX(1);
+				        transform: scaleX(1);
+			}
+		}
+	}
+
+	&.front-navigation {
+		margin-top: 6vh;
+		color: $white;
+
+		li {
+			color: $white;
+
+			a {
+				color: $white;
+				text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.85);
+
+				&:before {
+					background: rgba(255, 255, 255, 0.7);
+				}
+			}
+		}
 	}
 }
 
+.dark-mode .main-navigation a::before {
+	background: rgba(255, 255, 255, 0.7);
+}
+
 /* Small menu. */
+.menu-toggle {
+	line-height: 1;
+	font-family: $display;
+	font-size: $px21;
+	font-weight: bold;
+	font-weight: 500;
+	font-variant: small-caps;
+	letter-spacing: 0.05em;
+
+	svg {
+		vertical-align: baseline;
+		padding-top: 0.03em;
+	}
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -104,7 +174,12 @@
 	.main-navigation {
 
 		ul {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
 			display: flex;
+			justify-content: flex-end;
+			padding-top: 0;
 
 			& > li {
 				position: relative;
@@ -117,6 +192,18 @@
 			ul {
 				display: block;
 			}
+		}
+
+		li {
+			margin: 0;
+		}
+	}
+
+	.home .main-navigation {
+		clear: none;
+
+		ul {
+			justify-content: flex-start;
 		}
 	}
 }
