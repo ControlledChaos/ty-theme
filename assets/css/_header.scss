@@ -24,6 +24,10 @@
 
 .home {
 
+	.site-branding {
+		margin-top: 15vh;
+	}
+
 	.site-title,
 	.site-description {
 		color: $white;
@@ -55,7 +59,7 @@
 	min-height: 100vh;
 	z-index: -1;
 	overflow: hidden;
-	margin: 2rem auto 0;
+	margin: 0 auto;
 	background: #222;
 	color: #fff;
 	margin-left: calc( -100vw / 2 + 100% / 2 );
