@@ -42,27 +42,6 @@
 	}
 }
 
-.theme-toggle {
-	margin: 1em 0 0;
-	font-family: $display;
-	font-size: $px12;
-	font-weight: 500;
-	text-align: right;
-
-	button {
-		background: inherit;
-		color: $dark_gray;
-	}
-}
-
-.no-js .theme-toggle {
-	display: none;
-}
-
-.dark-mode .theme-toggle button {
-	color: $white;
-}
-
 .site-header-image {
 	margin: 1em 0;
 }

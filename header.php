@@ -73,7 +73,7 @@ if ( is_home() && ! is_front_page() ) {
 				<p class="site-description"><?php echo $site_description; ?></p>
 			<?php endif; ?>
 		</div>
-		<p class="theme-toggle"><button id="theme-toggle" type="button" name="dark_light" title="<?php esc_html_e( 'Toggle light/dark theme', 'ty-theme' ); ?>"><?php echo __( 'Light Theme', 'ty-theme' ); ?></button></p>
+		<?php TY_Theme\Tags\theme_mode(); ?>
 	</header>
 
 	<div id="content" class="site-content">
