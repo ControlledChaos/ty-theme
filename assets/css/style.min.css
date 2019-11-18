@@ -497,6 +497,12 @@ main article {
   clear: both;
 }
 
+@media screen and (min-width: 37.5em) {
+  body:not(.home) .site-main {
+    margin-top: 1em;
+  }
+}
+
 /**
  * Forms
  */
@@ -700,7 +706,7 @@ h2 + .search-form {
 
 .theme-toggle-button {
   position: relative;
-  margin: 1em 0 0;
+  margin: 0;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -841,17 +847,22 @@ h2 + .search-form {
   background: rgba(0, 0, 0, 0.5325);
 }
 
+.theme-toggle {
+  float: right;
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 37.5em) {
   .site-title {
-    margin: 1rem 0 0;
+    margin: 0;
     font-size: 3em;
   }
   .site-description {
     line-height: 1;
   }
   .theme-toggle {
-    float: right;
     margin: 0;
+    margin-top: -2em;
   }
 }
 
