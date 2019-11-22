@@ -405,18 +405,32 @@ body:not(.folded) .wp-menu-image {
   color: #fff;
 }
 
-#adminmenu .wp-submenu li.current, #adminmenu .wp-submenu li.current a, #adminmenu .wp-submenu li.current a:hover, #dashboard_right_now .versions .b, #ed_reply_toolbar #ed_reply_strong, #pass-strength-result.short, #pass-strength-result.strong, #post-status-display, #post-visibility-display, .feature-filter .feature-name, .item-controls .item-order a, .media-item .percent, .nav-tab, .plugins .name {
+#adminmenu .wp-submenu li.current,
+#adminmenu .wp-submenu li.current a,
+#adminmenu .wp-submenu li.current a:hover,
+#dashboard_right_now .versions .b,
+#ed_reply_toolbar #ed_reply_strong,
+#pass-strength-result.short,
+#pass-strength-result.strong,
+#post-status-display,
+#post-visibility-display,
+.feature-filter .feature-name,
+.item-controls .item-order a,
+.media-item .percent,
+.nav-tab,
+.plugins .name {
   font-weight: normal;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 #adminmenu .wp-submenu li.current a:before {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 0 -0.35em;
+  margin: 0 0 0 -0.4em;
   font-family: 'Dashicons';
   font-size: 2em;
   content: '\f139';
+  line-height: 0.5;
 }
 
 /* Active tabs use a bottom border color that matches the page background color. */
@@ -442,6 +456,11 @@ body:not(.folded) .wp-menu-image {
 
 #adminmenu .wp-submenu .wp-submenu-head {
   color: #444;
+}
+
+#adminmenu .wp-has-current-submenu ul > li > a,
+.folded #adminmenu li.menu-top .wp-submenu > li > a {
+  line-height: 1.2;
 }
 
 #adminmenu .wp-submenu a,
