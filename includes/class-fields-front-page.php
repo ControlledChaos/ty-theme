@@ -92,7 +92,7 @@ final class Fields_Front_Page {
 						'preview_size' => 'preview-video',
 						'insert' => 'append',
 						'library' => 'all',
-						'min' => 1,
+						'min' => '',
 						'max' => '',
 						'min_width' => 1280,
 						'min_height' => 720,
