@@ -45,7 +45,7 @@ if ( is_home() && ! is_front_page() ) {
 	<?php do_action( 'after_wp_head' ); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( 'dark-mode' ); ?>>
 <?php TY_Theme\Tags\before_page(); ?>
 <div id="page" class="site" itemscope="itemscope" itemtype="<?php TY_Theme\Tags\site_schema(); ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ty-theme' ); ?></a>
@@ -73,7 +73,14 @@ if ( is_home() && ! is_front_page() ) {
 				<p class="site-description"><?php echo $site_description; ?></p>
 			<?php endif; ?>
 		</div>
-		<?php TY_Theme\Tags\theme_mode(); ?>
+		<?php
+		/**
+		 * The theme toggle is disabled.
+		 * Uncomment to use then remove
+		 * `dark-mode` from the body
+		 * element.
+		 */
+		// TY_Theme\Tags\theme_mode(); ?>
 	</header>
 
 	<div id="content" class="site-content">
