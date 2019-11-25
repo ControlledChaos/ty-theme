@@ -277,7 +277,7 @@ final class Functions {
 		/**
 		 * 2:3 aspect ratio for poster image sizes
 		 *
-		 * Add only if the companion pligin is not active,
+		 * Add only if the companion pligin is not active.
 		 */
 		if ( ! TY_PLUGIN ) {
 			add_image_size( 'poster-small', 213, 320, true );
