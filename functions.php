@@ -13,23 +13,6 @@
  * @since      1.0.0
  */
 
-/**
- * License & Warranty
- *
- * TY Theme is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * any later version.
- *
- * TY Theme is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with TY Theme. If not, see {URI to Plugin License}.
- */
-
 // Namespace specificity for theme functions & filters.
 namespace TY_Theme\Functions;
 
@@ -42,10 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 /**
- * Define the parent plugin path: directory and core file name.
+ * Define the companion plugin path
  *
  * @since  1.0.0
- * @return string Returns the plugin path of the parent.
+ * @return string Returns the plugin path of the parent:
+ *                directory and core file name.
  */
 if ( ! defined( 'TY_PLUGIN' ) ) {
 	define( 'TY_PLUGIN', 'ty-plugin/ty-plugin.php' );
