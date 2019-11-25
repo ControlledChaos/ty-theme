@@ -42,6 +42,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 /**
+ * Define the parent plugin path: directory and core file name.
+ *
+ * @since  1.0.0
+ * @return string Returns the plugin path of the parent.
+ */
+if ( ! defined( 'TY_PLUGIN' ) ) {
+	define( 'TY_PLUGIN', 'ty-plugin/ty-plugin.php' );
+}
+
+/**
  * TY Theme functions class
  *
  * @since  1.0.0
@@ -264,15 +274,16 @@ final class Functions {
 		add_image_size( __( 'small-video', 'ty-theme' ), 640, 360, true );
 		add_image_size( __( 'preview-video', 'ty-theme' ), 320, 180, true );
 
-		// 2:3 Poster images.
-		add_image_size( __( 'large-poster', 'ty-theme' ), 160, 240, true );
-		add_image_size( __( 'medium-poster', 'ty-theme' ), 320, 480, true );
-		add_image_size( __( 'small-poster', 'ty-theme' ), 640, 960, true );
-
-		// 21:9 Cinemascope.
-		add_image_size( __( 'large-banner', 'ty-theme' ), 1280, 549, true );
-		add_image_size( __( 'medium-banner', 'ty-theme' ), 960, 411, true );
-		add_image_size( __( 'small-banner', 'ty-theme' ), 640, 274, true );
+		/**
+		 * 2:3 aspect ratio for poster image sizes
+		 *
+		 * Add only if the companion pligin is not active,
+		 */
+		if ( ! TY_PLUGIN ) {
+			add_image_size( 'poster-small', 213, 320, true );
+			add_image_size( 'poster-medium', 426, 640, true );
+			add_image_size( 'poster-large', 853, 1280, true );
+		}
 
 		 /**
 		 * Set content width.
@@ -360,6 +371,7 @@ final class Functions {
 	 * @return void
 	 */
 	public function widgets() {
+
 
 		// Add customizer widget refresh support.
 		add_theme_support( 'customize-selective-refresh-widgets' );
