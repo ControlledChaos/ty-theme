@@ -28,11 +28,28 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
  * Define the companion plugin path
  *
  * @since  1.0.0
+ * @access public
  * @return string Returns the plugin path of the parent:
  *                directory and core file name.
  */
 if ( ! defined( 'TY_PLUGIN' ) ) {
-	define( 'TY_PLUGIN', 'ty-plugin/ty-plugin.php' );
+	define( 'TY_PLUGIN', 'ty-plugin/index.php' );
+}
+
+/**
+ * Check companion plugin activity
+ *
+ * @since  1.0.0
+ * @access public
+ * @return bool Returns true if the companion plugin is active.
+ */
+function ty_plugin() {
+
+	if ( is_plugin_active( TY_PLUGIN ) ) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 /**
@@ -263,7 +280,7 @@ final class Functions {
 		 *
 		 * Add only if the companion pligin is not active.
 		 */
-		if ( ! TY_PLUGIN ) {
+		if ( ! ty_plugin() ) {
 			add_image_size( 'poster-small', 213, 320, true );
 			add_image_size( 'poster-medium', 426, 640, true );
 			add_image_size( 'poster-large', 853, 1280, true );
