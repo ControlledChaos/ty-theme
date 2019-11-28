@@ -15,7 +15,7 @@ get_header(); ?>
 				<?php
 				echo sprintf(
 					'<h1 class="page-title archive-title">%1s</h1>',
-					esc_html__( 'Film Projects', 'ty-theme' )
+					esc_html__( 'Feature Films', 'ty-theme' )
 				); ?>
 			</header>
 			<?php if ( have_posts() ) : ?>

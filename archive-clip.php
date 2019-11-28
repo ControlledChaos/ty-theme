@@ -15,13 +15,13 @@ get_header(); ?>
 				<?php
 				echo sprintf(
 					'<h1 class="page-title archive-title">%1s</h1>',
-					esc_html__( 'Television', 'ty-theme' )
+					esc_html__( 'Clips', 'ty-theme' )
 				); ?>
 			</header>
 			<?php if ( have_posts() ) : ?>
-			<ul class="video-grid television-archive-grid">
+			<ul class="video-grid clip-archive-grid">
 			<?php while ( have_posts() ) : the_post();
-				get_template_part( 'template-parts/content', 'television-archive' );
+				get_template_part( 'template-parts/content', 'clip-archive' );
 			endwhile; ?>
 			</ul>
 			<?php the_posts_navigation(); ?>

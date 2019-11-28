@@ -419,6 +419,32 @@ a:visited {
   /* Above WP toolbar. */
 }
 
+/**
+ * SASS/SCSS variables
+ *
+ * The following variables are used in other .scss files.
+ * Make sure that this files is called early in style,scss.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+/**
+ * Font families
+ */
+/**
+ * Font sizes
+ *
+ * The font size variables presume a browser default of 16px,
+ * in which case the variable number is equivelent to a px number.
+ *
+ * SASS compiler may not like variables beginning with a numeral.
+ */
 html {
   overflow-x: hidden;
 }
@@ -466,6 +492,31 @@ main article {
   clear: both;
 }
 
+/* Single project pages */
+.project-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.project-top figure {
+  margin-right: 1.875rem;
+}
+
+.project-video-embed {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: solid 1px rgba(255, 255, 255, 0.35);
+}
+
+.project-video-embed > div {
+  padding-top: 56.5% !important;
+}
+
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
   outline: 0;
@@ -500,6 +551,12 @@ main article {
 @media screen and (min-width: 37.5em) {
   body:not(.home) .site-main {
     margin-top: 1em;
+  }
+  .project-top {
+    -webkit-box-orient: unset;
+    -webkit-box-direction: unset;
+        -ms-flex-direction: unset;
+            flex-direction: unset;
   }
 }
 
@@ -778,9 +835,9 @@ h2 + .search-form {
 }
 
 .site-description {
-  margin: 0;
+  margin: 0.3em 0 0;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 21px;
+  font-size: 1.1875rem;
   font-weight: 500;
   letter-spacing: 0.03em;
   line-height: 1.5;
@@ -923,7 +980,7 @@ h2 + .search-form {
   overflow: visible;
   margin: 0.5em 0;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: bold;
   font-weight: 500;
   font-variant: small-caps;
@@ -1011,8 +1068,21 @@ h2 + .search-form {
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
-  margin: 0 0 1.5em;
+  margin: 1.875rem 0;
   overflow: hidden;
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 600;
+}
+
+.comment-navigation a,
+.posts-navigation a,
+.post-navigation a {
+  text-decoration: none;
 }
 
 .comment-navigation .nav-previous,
@@ -1022,12 +1092,24 @@ h2 + .search-form {
   width: 50%;
 }
 
+.comment-navigation .nav-previous .post-nav-icon,
+.posts-navigation .nav-previous .post-nav-icon,
+.post-navigation .nav-previous .post-nav-icon {
+  margin-right: 0.5em;
+}
+
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
   float: right;
   text-align: right;
   width: 50%;
+}
+
+.comment-navigation .nav-next .post-nav-icon,
+.posts-navigation .nav-next .post-nav-icon,
+.post-navigation .nav-next .post-nav-icon {
+  margin-left: 0.5em;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -1101,32 +1183,39 @@ h2 + .search-form {
   margin-right: 1em;
 }
 
+.inline-icon {
+  display: inline-block;
+  vertical-align: sub;
+  width: auto;
+  height: 1em;
+  fill: currentColor;
+}
+
 /**
  * Video grids
  */
 .video-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
   grid-gap: 0.35em 0.35em;
   max-width: 100vw;
   margin: 2em 0 0;
-  margin-left: calc( -100vw / 2 + 100% / 2);
-  margin-right: calc( -100vw / 2 + 100% / 2);
   list-style: none;
 }
 
 .video-grid figure {
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .video-grid figure img {
   display: block;
   width: 100%;
   max-width: 100%;
-  height: auto;
+  min-height: 100%;
   opacity: 0.95;
   -webkit-transition: all .25s;
   transition: all .25s;
@@ -1139,9 +1228,19 @@ h2 + .search-form {
   bottom: 0;
   width: 100%;
   height: auto;
+  line-height: 1.2;
   padding: 1em 1em 1em 1.5em;
   background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(60%, rgba(0, 0, 0, 0.425)), to(rgba(0, 0, 0, 0.65)));
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.425) 60%, rgba(0, 0, 0, 0.65) 100%);
+  opacity: 0;
+  color: #ffffff;
+}
+
+.video-grid figure figcaption a {
+  display: block;
+  height: 100%;
+  pointer-events: auto;
+  text-decoration: none;
   color: #ffffff;
 }
 
@@ -1156,10 +1255,21 @@ h2 + .search-form {
   opacity: 1;
 }
 
-.video-grid a {
-  pointer-events: auto;
-  text-decoration: none;
-  color: #ffffff;
+.video-grid.clip-archive-grid {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.video-grid.clip-archive-grid figure figcaption {
+  opacity: 1;
+}
+
+.modal-caption-title,
+.clip-description-label {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1.125rem;
+  font-weight: bold;
+  font-weight: 600;
 }
 
 /**
@@ -1255,8 +1365,18 @@ h2 + .search-form {
   text-decoration: none;
 }
 
+@media screen and (min-width: 37.5em) {
+  .project-top figure img {
+    max-width: 120px;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .video-grid {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .video-grid.clip-archive-grid {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
   }
@@ -1264,6 +1384,10 @@ h2 + .search-form {
 
 @media screen and (max-width: 640px) {
   .video-grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .video-grid.clip-archive-grid {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }

@@ -1,3 +1,4 @@
+@import '_variables';
 html {
 	overflow-x: hidden;
 }
@@ -21,21 +22,16 @@ body:not(.home) .site-main {
 .home {
 	height: 100vh;
 	display: -webkit-box;
-	display: -moz-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
-	   -moz-box-orient: vertical;
-	   -moz-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
 	-webkit-box-align: center;
-	   -moz-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
 	-webkit-box-pack: center;
-	   -moz-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	margin: 0;
@@ -48,6 +44,28 @@ body:not(.home) .site-main {
 
 main article {
 	clear: both;
+}
+
+/* Single project pages */
+.project-top {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+
+	figure {
+		margin-right: $px30;
+	}
+}
+
+.project-video-embed {
+	margin-top: $px40;
+	padding-top: $px40;
+	border-top: solid 1px rgba(255,255,255,0.35);
+
+	& > div {
+		padding-top: 56.5% !important;
+	}
 }
 
 /* Do not show the outline on the skip link target. */
@@ -85,5 +103,9 @@ main article {
 
 	body:not(.home) .site-main {
 		margin-top: 1em;
+	}
+
+	.project-top {
+		flex-direction: unset;
 	}
 }

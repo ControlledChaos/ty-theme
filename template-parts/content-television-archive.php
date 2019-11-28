@@ -27,12 +27,18 @@ $height   = $image['sizes'][ $size . '-height' ];
 $gallery  = get_field( 'typ_project_gallery' );
 $vimeo_data = json_decode( file_get_contents( 'http://vimeo.com/api/oembed.json?url=' . $vimeo ) );
 
-if ( $image ) {
-	$thumb = $image['sizes'][ $size ];
-} elseif ( $vimeo_data ) {
-	$thumb = $vimeo_data->thumbnail_url;
+// Poster image.
+$poster_image  = get_field( 'typ_poster_image' );
+$poster_size   = 'poster-large';
+$poster_width  = $poster_image['sizes'][ $poster_size . '-width' ];
+$poster_height = $poster_image['sizes'][ $poster_size . '-height' ];
+
+if ( $poster_image ) {
+	$poster_src    = $poster_image['sizes'][ $poster_size ];
+	$poster_srcset = wp_get_attachment_image_srcset( $poster_image['ID'], $poster_size );
 } else {
-	$thumb = get_theme_file_uri( '/assets/images/video-placeholder.jpg' );
+	$poster_src    = get_theme_file_uri( '/assets/images/poster-placeholder.jpg' );
+	$poster_srcset = null;
 }
 
 if ( ! $vimeo_data ) {
@@ -41,10 +47,11 @@ if ( ! $vimeo_data ) {
 	$vimeo = $vimeo_data->video_id;
 }
 
-if ( $title && $director ) {
-	$caption = $title . '<br />Directed by ' . $director;
-} elseif ( $title ) {
-	$caption = $title;
+if ( $title ) {
+	$caption = sprintf(
+		'<span class="modal-caption-title">%1s</span>',
+		$title
+	);
 } else {
 	$caption = '';
 }
@@ -52,16 +59,13 @@ if ( $title && $director ) {
 
 ?>
 
-<li class="film-archive-entry" id="<?php echo 'film-' . get_the_ID(); ?>">
+<li class="clip-archive-entry" id="<?php echo 'clip-' . get_the_ID(); ?>">
 	<figure>
 		<?php if ( $vimeo ) : ?><a data-fancybox data-caption="<?php echo esc_attr( $caption ); ?>" href="https://player.vimeo.com/video/<?php echo $vimeo; ?>?title=0&byline=0&portrait=0&color=ffffff&autoplay=1" target="_blank"><?php endif; ?>
-			<img src="<?php echo $thumb; ?>" srcset="<?php echo esc_attr( $srcset ); ?>" sizes="(max-width: 640px) 640px, (max-width: 960px) 960px, 640px" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+			<img src="<?php echo $poster_src; ?>" srcset="<?php echo $poster_srcset; ?>" sizes="(max-width: 640px) 640px, (max-width: 960px) 960px, 640px" alt="<?php echo $title . __( ' poster art', 'ty-theme' ); ?>" />
 		<?php if ( $vimeo ) : ?></a><?php endif; ?>
 		<figcaption>
 			<?php echo sprintf( '<h2 class="archives-image-title">%1s</h2>', $title ); ?>
 		</figcaption>
 	</figure>
-	<?php if ( $gallery ) { ?><div class="film-archive-gallery" id="<?php echo 'film-gallery-' . get_the_ID(); ?>">
-		<?php do_action( 'feature_galleries' ); ?>
-	</div><?php } ?>
 </li>

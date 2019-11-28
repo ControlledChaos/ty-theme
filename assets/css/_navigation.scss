@@ -54,7 +54,7 @@
 		overflow: visible;
 		margin: 0.5em 0;
 		font-family: $display;
-		font-size: $px18;
+		font-size: $px16;
 		font-weight: bold;
 		font-weight: 500;
 		font-variant: small-caps;
@@ -146,8 +146,19 @@
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
-	margin: 0 0 1.5em;
+	margin: $px30 0;
 	overflow: hidden;
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+	font-family: $display;
+	font-weight: 600;
+
+	a {
+		text-decoration: none;
+	}
 }
 
 .comment-navigation .nav-previous,
@@ -155,6 +166,10 @@
 .post-navigation .nav-previous {
 	float: left;
 	width: 50%;
+
+	.post-nav-icon {
+		margin-right: 0.5em;
+	}
 }
 
 .comment-navigation .nav-next,
@@ -163,6 +178,10 @@
 	float: right;
 	text-align: right;
 	width: 50%;
+
+	.post-nav-icon {
+		margin-left: 0.5em;
+	}
 }
 
 // Non-mobile menu.
