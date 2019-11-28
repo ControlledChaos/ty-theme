@@ -423,7 +423,9 @@ final class Functions {
 		wp_enqueue_script( 'theme-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
 
 		// FitVids for responsive video embeds.
-		wp_enqueue_script( 'fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
+		if ( ! ty_plugin() ) {
+			wp_enqueue_script( 'fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
+		}
 		wp_add_inline_script( 'fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
 
 		// TitText for the front page site title.
