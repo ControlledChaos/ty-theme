@@ -165,6 +165,9 @@ final class Functions {
 		// User color scheme classes.
 		add_filter( 'body_class', [ $this, 'color_scheme_classes' ] );
 
+		// Login title.
+		add_filter( 'login_headertext', [ $this, 'login_url_title' ] );
+
 	}
 
 	/**
@@ -548,7 +551,7 @@ final class Functions {
 		// Google fonts.
 		wp_enqueue_style( 'ty-theme-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i&display=swap', [], '', 'screen' );
 
-		wp_enqueue_style( 'custom-login', get_theme_file_uri( '/assets/css/login.css' ), [], '', 'screen' );
+		wp_enqueue_style( 'custom-login', get_theme_file_uri( '/assets/css/login.min.css' ), [], '', 'screen' );
 
 	}
 
@@ -738,6 +741,17 @@ final class Functions {
 		// Return the unfiltered classes if user is not logged in.
 		return $classes;
 
+	}
+
+		/**
+	 * Login title
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the title attribute text.
+	 */
+	public function login_url_title() {
+		return get_bloginfo( 'name' );
 	}
 
 }
