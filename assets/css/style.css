@@ -1085,6 +1085,12 @@ h2 + .search-form {
   text-decoration: none;
 }
 
+.comment-navigation .post-nav-icon,
+.posts-navigation .post-nav-icon,
+.post-navigation .post-nav-icon {
+  width: 1em;
+}
+
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
@@ -1214,9 +1220,9 @@ h2 + .search-form {
 .video-grid figure img {
   display: block;
   width: 100%;
+  height: auto;
   max-width: 100%;
-  min-height: 100%;
-  opacity: 0.95;
+  opacity: 0.85;
   -webkit-transition: all .25s;
   transition: all .25s;
 }
@@ -1227,17 +1233,17 @@ h2 + .search-form {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   line-height: 1.2;
-  padding: 1em 1em 1em 1.5em;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(60%, rgba(0, 0, 0, 0.425)), to(rgba(0, 0, 0, 0.65)));
-  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.425) 60%, rgba(0, 0, 0, 0.65) 100%);
-  opacity: 0;
+  padding: 0.5em 1em;
+  background: rgba(0, 0, 0, 0.85);
   color: #ffffff;
+  opacity: 0;
+  -webkit-transition: all .25s;
+  transition: all .25s;
 }
 
 .video-grid figure figcaption a {
-  display: block;
   height: 100%;
   pointer-events: auto;
   text-decoration: none;
@@ -1251,8 +1257,35 @@ h2 + .search-form {
   text-shadow: 0.035em 0.035em 0.035em rgba(0, 0, 0, 0.85);
 }
 
-.video-grid figure:hover img {
+.video-grid figure figcaption .clip-links {
+  margin-top: 1em;
+  -webkit-transition: all .15s;
+  transition: all .15s;
+}
+
+.video-grid figure figcaption .clip-links a {
+  display: inline-block;
+}
+
+.video-grid figure figcaption .clip-links svg {
+  display: inline-block;
+  margin: 0 1em 0 0;
+  height: 19px;
+  fill: rgba(255, 255, 255, 0.85);
+}
+
+.video-grid figure:hover img, .video-grid figure:focus img {
   opacity: 1;
+}
+
+.video-grid figure:hover figcaption, .video-grid figure:focus figcaption {
+  opacity: 1;
+}
+
+.video-grid:not(.clip-archive-grid) .clip-links {
+  position: absolute;
+  left: 1em;
+  bottom: 0.5em;
 }
 
 .video-grid.clip-archive-grid {
@@ -1264,36 +1297,27 @@ h2 + .search-form {
   position: relative;
 }
 
-.video-grid.clip-archive-grid li .clip-links {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  opacity: 0;
-  -webkit-transition: all .15s;
-  transition: all .15s;
-}
-
-.video-grid.clip-archive-grid li .clip-links svg {
-  display: inline-block;
-  margin: 0 7px;
-  height: 16px;
-  fill: rgba(255, 255, 255, 0.85);
-}
-
-.video-grid.clip-archive-grid li:hover .clip-links {
-  opacity: 1;
-}
-
 .video-grid.clip-archive-grid figure figcaption {
+  height: auto;
+  opacity: 1;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(60%, rgba(0, 0, 0, 0.425)), to(rgba(0, 0, 0, 0.65)));
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.425) 60%, rgba(0, 0, 0, 0.65) 100%);
+  -webkit-transform: translateY(1.5em);
+          transform: translateY(1.5em);
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.video-grid.clip-archive-grid figure figcaption .clip-links {
+  opacity: 0;
+}
+
+.video-grid.clip-archive-grid figure:hover figcaption, .video-grid.clip-archive-grid figure:focus figcaption {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.video-grid.clip-archive-grid figure:hover figcaption .clip-links, .video-grid.clip-archive-grid figure:focus figcaption .clip-links {
   opacity: 1;
 }
 
@@ -1412,9 +1436,6 @@ h2 + .search-form {
   .video-grid.clip-archive-grid {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
-  }
-  .video-grid.clip-archive-grid li .clip-links {
-    opacity: 1;
   }
 }
 
