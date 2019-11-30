@@ -125,29 +125,26 @@
 		li {
 			position: relative;
 
-			.clip-page-link {
+			.clip-links {
 				position: absolute;
-				top: 8px;
-				right: 8px;
+				top: 16px;
+				right: 16px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 24px;
-				height: 24px;
-				padding: 4px;
-				border: solid 1px rgba(255,255,255,0.85);
-				border-radius: 50%;
 				opacity: 0;
 				transition: all .15s;
 
 				svg {
-					height: 12px;
+					display: inline-block;
+					margin: 0 7px;
+					height: 16px;
 					fill: rgba(255,255,255,0.85);
 				}
 			}
 
 			&:hover {
-				.clip-page-link {
+				.clip-links {
 					opacity: 1;
 				}
 			}
@@ -282,7 +279,7 @@
 			grid-template-columns: repeat(2, 1fr);
 
 			li {
-				.clip-page-link {
+				.clip-links {
 					opacity: 1;
 				}
 			}

@@ -29,5 +29,10 @@ $copyright = sprintf(
 </div>
 
 <?php wp_footer(); ?>
+<script>
+	jQuery(document).ready(function($) {
+		$('.tooltip').tooltipster();
+	});
+</script>
 </body>
 </html>

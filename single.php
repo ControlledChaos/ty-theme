@@ -15,8 +15,8 @@ if ( 'clip' == get_post_type() ) {
 	$prev_text = $left_arrow . __( 'Previous Clip', 'ty-theme' );
 	$next_text = __( 'Next Clip', 'ty-theme' ) . $right_arrow;
 } else {
-	$prev_text = $left_arrow . get_the_title();
-	$next_text = get_the_title() . $right_arrow;
+	$prev_text = $left_arrow . '%title';
+	$next_text = '%title' . $right_arrow;
 }
 
 get_header(); ?>
