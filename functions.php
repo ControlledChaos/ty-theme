@@ -157,7 +157,7 @@ final class Functions {
 		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 		// Theme options page.
-		add_action( 'admin_menu', [ $this, 'theme_options' ] );
+		// add_action( 'admin_menu', [ $this, 'theme_options' ] );
 
 		// Theme info page.
 		add_action( 'admin_menu', [ $this, 'theme_info' ] );
