@@ -743,7 +743,7 @@ final class Functions {
 
 	}
 
-		/**
+	/**
 	 * Login title
 	 *
 	 * @since  1.0.0
