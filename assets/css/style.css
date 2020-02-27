@@ -1257,6 +1257,10 @@ h2 + .search-form {
   text-shadow: 0.035em 0.035em 0.035em rgba(0, 0, 0, 0.85);
 }
 
+.video-grid figure figcaption h2 + span {
+  padding: 0 1em;
+}
+
 .video-grid figure figcaption .clip-links {
   width: 100%;
   display: -webkit-box;

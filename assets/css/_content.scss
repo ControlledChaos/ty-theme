@@ -95,6 +95,10 @@
 				text-transform: none;
 				color: $white;
 				text-shadow: 0.035em 0.035em 0.035em rgba(0, 0, 0, 0.85);
+
+				+ span {
+					padding: 0 1em;
+				}
 			}
 
 			.clip-links {
